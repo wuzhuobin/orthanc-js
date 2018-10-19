@@ -8,3 +8,4 @@ require("./test_patient_all_series");
 require("./test_patient_all_studies");
 require("./test_patient_info");
 require("./test_study_all_series")
+require("./test_series_preview")

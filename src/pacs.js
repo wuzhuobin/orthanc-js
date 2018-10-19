@@ -98,6 +98,16 @@ var PACS = {
         );
         return overload(ret, action);
     },
+    seriesPreview: function(id, action = undefined, partial = 0.5){
+        this.orderedSlice(id, function(orderedSlices){
+            console.log(orderedSlices);
+            let slice = Math.round(orderedSlices.length * partial);
+            let str = orderedSlices[slice];
+            str = str.substring(0, str.length - 5);
+            str = str + "/preview";
+            action(str);
+        });
+    }
 }
 module.exports = PACS;
 // Print a patien's all studies' json
