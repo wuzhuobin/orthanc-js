@@ -101,7 +101,7 @@ var PACS = {
     seriesPreview: function(id, action = undefined, partial = 0.5){
         this.orderedSlice(id, function(orderedSlices){
             console.log(orderedSlices);
-            let slice = Math.round(orderedSlices.length * partial);
+            let slice = Math.floor(orderedSlices.length * partial);
             let str = orderedSlices[slice];
             str = str.substring(0, str.length - 5);
             str = str + "/preview";
