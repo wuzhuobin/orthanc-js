@@ -99,13 +99,14 @@ var PACS = {
         return overload(ret, action);
     },
     seriesPreview: function(id, action = undefined, partial = 0.5){
-        this.orderedSlice(id, function(orderedSlices){
+        let ret = this.orderedSlice(id).then(function(orderedSlices){
             let slice = Math.floor(orderedSlices.length * partial);
             let str = orderedSlices[slice];
             str = str.substring(0, str.length - 5);
             str = str + "/preview";
-            action(str);
+            return str;
         });
+        return overload(ret, action);
     }
 }
 module.exports = PACS;
